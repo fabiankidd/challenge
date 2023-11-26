@@ -1,0 +1,26 @@
+<div id="wrapper">
+    <div id="header">
+      <img src="assets/imgs/university.jpg" width="800" />
+    <div class="header-content">
+      <h1>List of {{country.name}} Universities</h1>
+
+      <label>Choose a country</label>
+
+      <select [(ngModel)]="country" (ngModelChange)="onChange($event)">
+        <option *ngFor="let c of this.countries" [ngValue]="c">
+          {{c.name}}
+        </option>
+        
+      </select>
+    </div>
+     
+    </div>
+    <div id="content">
+      <!-- replace #root -->
+      <app-unis [country]="this.country" [unis]="this.unis"></app-unis>
+    </div>
+    <div id="footer">
+      <p>&copy; 2023 UK Universities</p>
+    </div>
+</div>
+

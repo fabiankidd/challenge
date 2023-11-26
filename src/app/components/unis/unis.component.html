@@ -1,0 +1,15 @@
+<div>
+    <div *ngIf="this.apiService.bLoading"  class="loader-wrap">
+        <div class="loading"></div>
+    </div>
+    
+    <ul *ngIf="this.unis else nodata">
+        <li *ngFor="let x of this.unis">
+           <a href="{{x['web_pages']}}" target="_blank" rel="noopener noreferrer">{{x['name']}}</a> 
+        </li>
+    </ul>
+</div>
+
+<ng-template #nodata>
+    <p *ngIf="apiService.bError">{{this.apiService._error}}</p>
+</ng-template>
